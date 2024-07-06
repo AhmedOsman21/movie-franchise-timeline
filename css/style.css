@@ -1,18 +1,64 @@
 /* Importing google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+/* Variables */
+:root {
+    --dark: #1a1a1a;
+    --bloody: #8b0000;
+    --max-width: 1100px;
+    --roboto-font: "Roboto", sans-serif;
+    --creepy-font: "Creepster", system-ui;
+}
 
+
+/* Resetting */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--roboto-font);
+    line-height: 1.5;
+    background-color: var(--dark);
+    color: #fff;
+    overflow-x: hidden;
+    padding-bottom: 3.5em;
+}
+
+/* Page Headings */
 h1{
     font-family: Creepster;
+    font-size: 2.3rem;
     letter-spacing: 0.4rem;
 }
 
+.icon {
+    display: inline-block;
+    margin-right: 0.2em;
+    width: 25px;
+    filter: invert();
+}
 
 h3 {
     display: flex;
     align-items: center;
 }
 
-.icon {
-    width: 25px;
+#main-header {
+    background: url("../images/hero.jpg") center top/cover no-repeat;
+    background-blend-mode: multiply;
+    background-color: #7c0404c0;
+    padding: 6em 2em;
+}
+
+.container {
+    max-width: var(--max-width);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
