@@ -149,3 +149,27 @@ h1{
     right: -15px;
     border-width: 8px 0 8px 16px;
 }
+
+/* Actors Labels */
+.actors span {
+    margin-top: 1em;
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.3em 0.5em;
+    border-radius: 4px;
+    margin-right: 0.5em;
+    color: var(--dark);
+}
+
+.actors span:first-child {
+    background-color: rgb(252, 88, 88);
+}
+
+.actors span:nth-child(2) {
+    background-color: rgb(255, 141, 87);
+}
+
+.actors span:last-child {
+    background-color: rgb(175, 25, 25);
+    color: #fff;
+}
