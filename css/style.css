@@ -1,13 +1,16 @@
 /* Importing google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 
 /* Variables */
 :root {
-    --dark: #1a1a1a;
-    --bloody: #8b0000;
+    --dark: #0e0d0d;
+    --bloody: #c00606;
     --max-width: 1100px;
     --roboto-font: "Roboto", sans-serif;
     --creepy-font: "Creepster", system-ui;
+    --release-font: "Crimson Text", serif;
+    --card-box: #2c2c2c;
 }
 
 
@@ -24,28 +27,29 @@ body {
     background-color: var(--dark);
     color: #fff;
     overflow-x: hidden;
-    padding-bottom: 3.5em;
+    padding-bottom: 3.125rem;
 }
 
 /* Page Headings */
 h1{
     font-family: Creepster;
-    font-size: 2.3rem;
+    font-size: 2.5rem;
     letter-spacing: 0.4rem;
 }
 
 .icon {
     display: inline-block;
     margin-right: 0.2em;
-    width: 25px;
+    width: 1.4em;
     filter: invert();
 }
 
-h3 {
+.container > h3 {
     display: flex;
     align-items: center;
 }
 
+/* Header */
 #main-header {
     background: url("../images/hero.jpg") center top/cover no-repeat;
     background-blend-mode: multiply;
@@ -61,4 +65,87 @@ h3 {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+/* Page Content */
+#timeline ul {
+    background-color: var(--dark);
+    padding: 3.5em 0;
+}
+
+/* Vertical Line */
+#timeline ul li {
+    list-style: none;
+    position: relative;
+    width: 0.375rem;
+    margin: 0 auto;
+    padding-top: 3.125rem;
+    background: #fff;
+}
+
+/* Releases Cards */
+#timeline ul li > div {
+    position: relative;
+    bottom: 0;
+    width: 30em;
+    padding: 1em;
+    background: var(--card-box);
+    transition: all 0.5s ease-in-out;
+}
+
+/* Right Cards */
+#timeline ul li:nth-child(odd) > div {
+    left: 2.4em;
+}
+
+/* Left Cards */
+#timeline ul li:nth-child(even) > div {
+    right: calc(30em + 2.4em);
+}
+
+#timeline ul li > div > h3 {
+    color: var(--bloody);
+    font-family: var(--release-font);
+    font-size: 1.4rem;
+}
+
+/* Dots */
+#timeline ul li:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: var(--card-box);
+    border-radius: 50%;
+    border: 4px solid var(--bloody);
+    outline: 4px solid #363333;
+    transform: translateX(-50%);
+    z-index: 1;
+    transition: background 0.5s ease;
+}
+
+/* Arrows at the bottom of cards */
+#timeline ul li > div::before {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent var(--card-box);
+}
+
+/* Right Side Arrows */
+#timeline ul li:nth-child(odd) > div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    
+}
+
+/* Left Side Arrows */
+#timeline ul li:nth-child(even) > div::before {
+    right: -15px;
+    border-width: 8px 0 8px 16px;
 }
