@@ -53,7 +53,7 @@ h1{
 #main-header {
     background: url("../images/hero.jpg") center top/cover no-repeat;
     background-blend-mode: multiply;
-    background-color: #7c0404c0;
+    background-color: #7c0404f3;
     padding: 6em 2em;
 }
 
@@ -103,12 +103,6 @@ h1{
     right: calc(30em + 2.4em);
 }
 
-#timeline ul li > div > h3 {
-    color: var(--bloody);
-    font-family: var(--release-font);
-    font-size: 1.4rem;
-}
-
 /* Dots */
 #timeline ul li:after {
     content: '';
@@ -148,6 +142,20 @@ h1{
 #timeline ul li:nth-child(even) > div::before {
     right: -15px;
     border-width: 8px 0 8px 16px;
+}
+
+
+/* Cards Heading */
+#timeline ul li > div > h3 {
+    color: var(--bloody);
+    font-family: var(--release-font);
+    font-size: 1.5rem;
+}
+
+/* Cards Paragraph */
+#timeline ul li > div > p {
+    margin-top: 0.2em;
+    padding: 0 0.5em;
 }
 
 /* Actors Labels */
