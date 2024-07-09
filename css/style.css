@@ -11,6 +11,7 @@
   --creepy-font: "Creepster", system-ui;
   --release-font: "Crimson Text", serif;
   --card-box: #2c2c2c;
+  --light-gray: rgb(155, 151, 151);
 }
 
 /* Resetting */
@@ -34,6 +35,11 @@ h1 {
   font-family: Creepster;
   font-size: 2.5rem;
   letter-spacing: 0.4rem;
+}
+
+/* Hide */
+.hidden {
+  display: none;
 }
 
 .icon {
@@ -157,8 +163,7 @@ h1 {
   padding: 0 0.5em;
 }
 
-
-div.actors {
+div.labels {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -195,28 +200,227 @@ div.actors {
   font-size: 0.55rem;
 }
 
-/* Actors Labels */
-.actors span {
+/* labels Labels */
+.labels span {
   margin-top: 1em;
   display: inline-block;
   font-size: 0.75rem;
   padding: 0.3em 0.5em;
   border-radius: 4px;
   margin-right: 0.5em;
-  color: var(--dark);  
+  color: var(--dark);
 }
 
-.actors span:first-child {
+.labels span:first-child {
   background-color: rgb(252, 88, 88);
 }
 
-.actors span:nth-child(2) {
+.labels span:nth-child(2) {
   background-color: rgb(255, 141, 87);
 }
 
-.actors span:nth-child(3) {
+.labels span:nth-child(3) {
   background-color: rgb(134, 68, 68);
   color: #fff;
+}
+
+/* Modals */
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  line-height: 1.6rem;
+  overflow: auto;
+}
+
+/* Modal Window */
+.modal-content {
+  position: absolute;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.692);
+  padding: 1.5em;
+  padding-top: 2.5em;
+  border-radius: 0.4em;
+  box-shadow: 0 -3rem 5rem rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+/* Background Overlay */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(100, 84, 84, 0.527);
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3rem 5rem rgba(151, 33, 33, 0.568);
+  backdrop-filter: blur(3px);
+  z-index: 2;
+}
+
+/* Modal Window Elements */
+/* Rows */
+.row {
+  display: flex;
+}
+
+/* Columns */
+.right-column {
+  padding: 0 1em;
+}
+
+/* Close Button */
+.modal .close-modal {
+  background: none;
+  border: none;
+  color: var(--light-gray);
+  font-size: 1.2rem;
+  position: absolute;
+  top: 0.8em;
+  right: 1em;
+  cursor: pointer;
+}
+
+/* Movie Title */
+.movie-header .movie-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.2em;
+}
+
+/* Basic info under the title */
+.movie-header p > .movie-basic-info {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--light-gray);
+  margin-right: 0.65em;
+  position: relative;
+}
+
+.movie-header p > .movie-basic-info::after {
+  content: " • ";
+  position: absolute;
+  color: #e4d6d6c9;
+  font-size: 0.85rem;
+  right: -0.66em;
+  top: 0.1em;
+}
+
+.movie-header p > .movie-basic-info:last-child::after {
+  content: "";
+}
+
+/* Movie Rate */
+.right-column .movie-rating {
+  text-align: right;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-right: 3em;
+  margin-top: 1em;
+}
+
+/* Poster */
+.movie-poster img {
+  width: 10em;
+  margin-top: 1em;
+}
+
+/* Movie Story */
+.movie-story {
+  margin: 2em 0 1em;
+}
+
+.movie-story h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.1em;
+}
+
+.movie-story p {
+  color: var(--light-gray);
+}
+
+/* Genre */
+.modal .labels span {
+  width: unset;
+  height: unset;
+  padding: 0.2em 0.8em;
+}
+
+/* Movie Director */
+.movie-director h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.1em;
+}
+
+.movie-director p a {
+  color: var(--light-gray);
+}
+
+/* Movie Cast */
+.movie-cast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+
+.movie-cast h4 {
+  font-size: 1.2rem;
+}
+
+.movie-cast .movie-actors {
+  /* Outer Container */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2em;
+}
+
+/* Actor Cards */
+.movie-actors .actor-card {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.8em;
+}
+
+/* Actor Image */
+.movie-actors .actor-card img {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+}
+
+/* Actor Info */
+.movie-actors .actor-card div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Actor Name */
+.movie-actors .actor-card div strong {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* Character Name */
+.movie-actors .actor-card div em {
+  font-size: 0.85rem;
+  font-style: normal;
+  color: var(--light-gray);
 }
 
 /* ========== Media Queries ========== */
@@ -264,12 +468,78 @@ div.actors {
     font-size: 1.2rem;
   }
 
-  .actors .read-more {
+  .labels .read-more {
     font-size: 0.7rem;
   }
 
-  .actors span {
+  .labels span {
     font-size: 0.6rem;
+  }
+
+  /* Modal */
+  /* Movie Title */
+  .movie-header .movie-title {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+  }
+
+  /* Basic info under the title */
+  .movie-header p > .movie-basic-info {
+    display: inline-block;
+    font-size: 0.66rem;
+    color: var(--light-gray);
+    margin-right: 0.55em;
+    position: relative;
+  }
+
+  .movie-header p > .movie-basic-info::after {
+    content: " • ";
+    position: absolute;
+    color: #e4d6d6c9;
+    font-size: 0.75rem;
+    right: -0.6em;
+    top: 0.1em;
+  }
+
+  .movie-header p > .movie-basic-info:last-child::after {
+    content: "";
+  }
+
+  /* Movie Rate */
+  .right-column .movie-rating {
+    text-align: right;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 0;
+    margin-top: 0;
+  }
+
+  /* Poster */
+  .movie-poster img {
+    width: 6em;
+    margin-top: 0.5em;
+  }
+
+  /* Movie Story */
+  .movie-story {
+    margin: 1em 0 0;
+  }
+
+  .movie-story h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.1em;
+  }
+
+  .movie-story p {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+  }
+
+  /* Hidden Items */
+  .modal .labels span, 
+  .movie-director,
+  .movie-cast {
+    display: none;
   }
 }
 
@@ -312,12 +582,12 @@ div.actors {
     font-size: 1.2rem;
   }
 
-  .actors {
+  .labels {
     flex-wrap: wrap;
     row-gap: 1.8em;
   }
 
-  .actors .read-more {
+  .labels .read-more {
     font-size: 0.78rem;
     position: relative;
     margin: 0 auto;
@@ -325,19 +595,19 @@ div.actors {
     text-align: center;
   }
 
-  .actors span {
+  .labels span {
     font-size: 0.55rem;
   }
 }
 
 @media screen and (min-width: 730px) and (max-width: 800px) {
-  .actors span {
+  .labels span {
     min-width: 26%;
     text-align: center;
   }
 }
 @media screen and (min-width: 811px) and (max-width: 884px) {
-  .actors span {
+  .labels span {
     min-width: 25%;
     text-align: center;
   }
@@ -382,20 +652,19 @@ div.actors {
     font-size: 1.2rem;
   }
 
-  .actors {
+  .labels {
     flex-wrap: wrap;
     row-gap: 1.8em;
   }
 
-  .actors .read-more {
+  .labels .read-more {
     font-size: 0.78rem;
   }
 
-  .actors span {
+  .labels span {
     font-size: 0.55rem;
   }
 }
-
 
 @media screen and (min-width: 850px) {
   #main-header {
