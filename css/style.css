@@ -89,6 +89,9 @@ h1 {
   padding: 1em;
   background: var(--card-box);
   transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
 }
 
 /* Right Cards */
@@ -154,6 +157,44 @@ h1 {
   padding: 0 0.5em;
 }
 
+
+div.actors {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+/* Read More Link */
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 400;
+  background: var(--bloody);
+  text-decoration: none;
+  padding: 0.2em 0.5em;
+  border-radius: 0.3em;
+  gap: 0.3em;
+  position: absolute;
+  right: 0.2em;
+  bottom: 0;
+  transition: all 0.4s ease-in;
+}
+
+.read-more:hover {
+  background-color: #f50000;
+  box-shadow: -2px -3px 15px 1px rgba(221, 16, 16, 0.877);
+}
+
+.read-more:active {
+  box-shadow: -2px -3px 15px 1px rgba(255, 172, 64, 0.877);
+}
+
+.read-more > i {
+  font-size: 0.55rem;
+}
+
 /* Actors Labels */
 .actors span {
   margin-top: 1em;
@@ -162,7 +203,7 @@ h1 {
   padding: 0.3em 0.5em;
   border-radius: 4px;
   margin-right: 0.5em;
-  color: var(--dark);
+  color: var(--dark);  
 }
 
 .actors span:first-child {
@@ -173,8 +214,8 @@ h1 {
   background-color: rgb(255, 141, 87);
 }
 
-.actors span:last-child {
-  background-color: rgb(175, 25, 25);
+.actors span:nth-child(3) {
+  background-color: rgb(134, 68, 68);
   color: #fff;
 }
 
@@ -223,12 +264,16 @@ h1 {
     font-size: 1.2rem;
   }
 
+  .actors .read-more {
+    font-size: 0.7rem;
+  }
+
   .actors span {
     font-size: 0.6rem;
   }
 }
 
-@media screen and (min-width: 600px) and (max-width: 1110px) {
+@media screen and (min-width: 600px) and (max-width: 890px) {
   #timeline ul li {
     list-style: none;
     position: relative;
@@ -266,13 +311,94 @@ h1 {
   #timeline ul li > div > h3 {
     font-size: 1.2rem;
   }
+
+  .actors {
+    flex-wrap: wrap;
+    row-gap: 1.8em;
+  }
+
+  .actors .read-more {
+    font-size: 0.78rem;
+    position: relative;
+    margin: 0 auto;
+    min-width: 20%;
+    text-align: center;
+  }
+
   .actors span {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
 }
 
+@media screen and (min-width: 730px) and (max-width: 800px) {
+  .actors span {
+    min-width: 26%;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 811px) and (max-width: 884px) {
+  .actors span {
+    min-width: 25%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 890px) and (max-width: 1110px) {
+  #timeline ul li {
+    list-style: none;
+    position: relative;
+    width: 0.25rem;
+    padding-top: 3.125rem;
+    background: #fff;
+  }
+
+  #timeline ul li > div {
+    position: relative;
+    bottom: 0;
+    width: 40vw;
+    font-size: 0.7rem;
+    padding: 1em;
+    background: var(--card-box);
+    transition: all 0.5s ease-in-out;
+  }
+
+  /* Right Cards */
+  #timeline ul li:nth-child(odd) > div {
+    left: 3em;
+  }
+
+  /* Left Cards */
+  #timeline ul li:nth-child(even) > div {
+    right: calc(40vw + 3em);
+  }
+
+  /* Dots */
+  #timeline ul li:after {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  #timeline ul li > div > h3 {
+    font-size: 1.2rem;
+  }
+
+  .actors {
+    flex-wrap: wrap;
+    row-gap: 1.8em;
+  }
+
+  .actors .read-more {
+    font-size: 0.78rem;
+  }
+
+  .actors span {
+    font-size: 0.55rem;
+  }
+}
+
+
 @media screen and (min-width: 850px) {
-    #main-header {
-        background-position: center -5.5em;
-      }
+  #main-header {
+    background-position: center -5.5em;
+  }
 }
