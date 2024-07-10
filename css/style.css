@@ -38,7 +38,7 @@ h1 {
 }
 
 /* Hide */
-.hidden {
+div.hidden {
   display: none;
 }
 
@@ -174,6 +174,7 @@ div.labels {
   display: inline-flex;
   align-items: center;
   color: #fff;
+  cursor: pointer;
   font-size: 0.9rem;
   font-weight: 400;
   background: var(--bloody);
@@ -230,41 +231,69 @@ div.labels {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
   position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
   z-index: 10;
   line-height: 1.6rem;
-  overflow: auto;
+  overflow: auto;  
 }
 
 /* Modal Window */
 .modal-content {
   position: absolute;
   width: 80%;
-  background-color: rgba(0, 0, 0, 0.692);
+  background-color: rgba(0, 0, 0, 0.699);
   padding: 1.5em;
   padding-top: 2.5em;
   border-radius: 0.4em;
-  box-shadow: 0 -3rem 5rem rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   z-index: 10;
+  transform: scale(0);
+  animation-name: pop-up;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes pop-up {
+  to {
+    transform: scale(1);
+  }
 }
 
 /* Background Overlay */
 .overlay {
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(100, 84, 84, 0.527);
+  background-color: rgba(56, 56, 56, 0.527);
   width: 100%;
   height: 100%;
   box-shadow: 0 3rem 5rem rgba(151, 33, 33, 0.568);
   backdrop-filter: blur(3px);
   z-index: 2;
+}
+
+/* Close Button */
+.modal .close-modal {
+  background: none;
+  border: none;
+  color: var(--light-gray);
+  font-size: 1.2rem;
+  position: absolute;
+  top: 0.8em;
+  right: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal .close-modal:hover {
+  color: rgb(92, 89, 89);
 }
 
 /* Modal Window Elements */
@@ -278,17 +307,6 @@ div.labels {
   padding: 0 1em;
 }
 
-/* Close Button */
-.modal .close-modal {
-  background: none;
-  border: none;
-  color: var(--light-gray);
-  font-size: 1.2rem;
-  position: absolute;
-  top: 0.8em;
-  right: 1em;
-  cursor: pointer;
-}
 
 /* Movie Title */
 .movie-header .movie-title {
