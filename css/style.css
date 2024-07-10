@@ -253,7 +253,7 @@ div.labels {
   z-index: 10;
   transform: scale(0);
   animation-name: pop-up;
-  animation-duration: 0.4s;
+  animation-duration: 0.2s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
 }
