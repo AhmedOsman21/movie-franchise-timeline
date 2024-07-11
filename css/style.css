@@ -185,12 +185,12 @@ div.labels {
   position: absolute;
   right: 0.2em;
   bottom: 0;
-  transition: all 0.4s ease-in;
 }
 
 .read-more:hover {
   background-color: #f50000;
   box-shadow: -2px -3px 15px 1px rgba(221, 16, 16, 0.877);
+  transition: background-color 0.4s ease-in, box-shadow 0.4s ease-out;
 }
 
 .read-more:active {
