@@ -2,42 +2,58 @@
 
 // Open Modal Window
 const readMoreBtn = document.querySelectorAll(".read-more");
-const modalWindow = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
+const modalWindow = document.querySelectorAll(".modal");
+const overlay = document.querySelectorAll(".overlay");
 const closeModalBtn = document.querySelectorAll(".close-modal");
 
 // Showing Modal
-function showModal() {
-    modalWindow.classList.remove("hidden");
-    overlay.classList.remove("hidden");
+function show(element, index) {
+    element[index].classList.remove("hidden");
 }
 
-// Clicking Read More
-readMoreBtn.forEach(element => {
-    element.addEventListener("click", showModal);
+// Clicking Read More Button
+readMoreBtn.forEach((element, index) => {
+    element.addEventListener("click", function () {
+        const modalToShow = document.querySelector(`.${element.id}`);
+        if (modalToShow) {
+            modalToShow.classList.remove("hidden");
+        }
+        if (overlay[index]) {
+            show(overlay, index);
+        }
+    })
 });
 
 // Hiding Modal
-function hideModal() {
-    modalWindow.classList.add("hidden");
-    overlay.classList.add("hidden");
+function hideElement(element, index) {
+    element[index].classList.add("hidden");
 }
 
-// Clicking Close Button
-closeModalBtn.forEach(element => {
-    element.addEventListener("click", hideModal);
-});
+function closeOnClick(clickableItem) {
+    clickableItem.forEach((element, index) => {
+        element.addEventListener("click", function () {
+            if (!modalWindow[index].classList.contains(".hidden")) {
+                hideElement(modalWindow, index);
+                hideElement(overlay, index);
+            }
+        });
+    })
+}
 
-// Clicking Outsite Modal Window
-overlay.addEventListener("click", hideModal);
+// Clicking close button
+closeOnClick(closeModalBtn);
+
+// Clicking outside modal
+closeOnClick(overlay);
 
 // Clicking Esc Button
 document.addEventListener("keydown", function (e) {
-    if (!modalWindow.classList.contains(".hidden") && !overlay.classList.contains(".hidden")) {
-        if (e.key === "Escape") {
-            hideModal();
+    modalWindow.forEach((element, index) => {
+        if (!element.classList.contains(".hidden") && !overlay[index].classList.contains(".hidden")) {
+            if (e.key === "Escape") {
+                hideElement(modalWindow, index);
+                hideElement(overlay, index);
+            }
         }
-    }
+    });
 });
-
-
