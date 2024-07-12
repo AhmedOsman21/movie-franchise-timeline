@@ -399,11 +399,9 @@ div.labels {
 
 .movie-cast .movie-actors {
   /* Outer Container */
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
   gap: 2em;
 }
 
@@ -426,7 +424,7 @@ div.labels {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 /* Actor Name */
