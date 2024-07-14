@@ -41,23 +41,8 @@ body {
 
 /* Page Headings */
 h1 {
-  font-family: Creepster;
   font-size: 2.5rem;
   letter-spacing: 0.4rem;
-}
-
-.icon {
-  display: inline-block;
-  margin-right: 0.2em;
-  width: 1.4em;
-  filter: invert();
-}
-
-header > .container > h3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 
 /* Header */
@@ -68,6 +53,43 @@ header > .container > h3 {
   padding: 6em 2em;
   display: flex;
   justify-content: center;
+}
+
+header > .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Halloween Timeline (H1) */
+header > .container > h1 {
+  font-family: Creepster, Geneva, Tahoma, sans-serif;
+  align-self: center;
+}
+
+/* H1 Icon */
+#main-header .container h1 > i {
+  font-size: 1.7rem;
+  position: relative;
+  bottom: 0.25em;
+  margin-right: 0.15em;
+}
+
+/* Michael Myers (H3)*/
+header > .container > h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* H3 Icon */
+.icon {
+  display: inline-block;
+  margin-right: 0.2em;
+  width: 1.4em;
+  filter: invert();
 }
 
 /* Page Content */
@@ -238,7 +260,7 @@ div.labels {
   top: 0;
   z-index: 10;
   line-height: 1.6rem;
-  overflow: auto;  
+  overflow: auto;
 }
 
 /* Modal Window */
@@ -306,7 +328,6 @@ div.labels {
 .right-column {
   padding: 0 1em;
 }
-
 
 /* Movie Title */
 .movie-header .movie-title {
@@ -441,6 +462,13 @@ div.labels {
 
 /* ========== Media Queries ========== */
 @media screen and (max-width: 600px) {
+  #main-header .container > h1 {
+    font-size: 2.1rem;
+  }
+  #main-header .container > h1 > i {
+    bottom: 0.2em;
+  }
+
   #timeline ul li {
     list-style: none;
     position: relative;
@@ -552,7 +580,7 @@ div.labels {
   }
 
   /* Hidden Items */
-  .modal .labels span, 
+  .modal .labels span,
   .movie-director,
   .movie-cast {
     display: none;
@@ -614,7 +642,7 @@ div.labels {
   .labels span {
     font-size: 0.55rem;
   }
-  
+
   /* Modal Close Button */
   .modal .close-modal {
     font-size: 1.6rem;
