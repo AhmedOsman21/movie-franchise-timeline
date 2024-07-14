@@ -6,12 +6,21 @@
 :root {
   --dark: #0e0d0d;
   --bloody: #c00606;
-  --max-width: 1100px;
+  --max-width: 1200px;
   --roboto-font: "Roboto", sans-serif;
   --creepy-font: "Creepster", system-ui;
   --release-font: "Crimson Text", serif;
   --card-box: rgba(49, 45, 45, 0.774);
   --light-gray: rgb(155, 151, 151);
+}
+
+/* Utility Classes */
+div.hidden {
+  display: none;
+}
+
+.container {
+  max-width: var(--max-width);
 }
 
 /* Resetting */
@@ -37,11 +46,6 @@ h1 {
   letter-spacing: 0.4rem;
 }
 
-/* Hide */
-div.hidden {
-  display: none;
-}
-
 .icon {
   display: inline-block;
   margin-right: 0.2em;
@@ -49,7 +53,7 @@ div.hidden {
   filter: invert();
 }
 
-.container > h3 {
+header > .container > h3 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,11 +68,6 @@ div.hidden {
   padding: 6em 2em;
   display: flex;
   justify-content: center;
-}
-
-.container {
-  max-width: var(--max-width);
-  text-align: center;
 }
 
 /* Page Content */
