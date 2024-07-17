@@ -55,7 +55,7 @@ h1 {
   justify-content: center;
 }
 
-header > .container {
+.header-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,13 +63,13 @@ header > .container {
 }
 
 /* Halloween Timeline (H1) */
-header > .container > h1 {
+.header-container > h1 {
   font-family: Creepster, Geneva, Tahoma, sans-serif;
   align-self: center;
 }
 
 /* H1 Icon */
-#main-header .container h1 > i {
+.header-container i {
   font-size: 1.7rem;
   position: relative;
   bottom: 0.25em;
@@ -77,7 +77,7 @@ header > .container > h1 {
 }
 
 /* Michael Myers (H3)*/
-header > .container > h3 {
+.header-container > h3 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,7 +85,7 @@ header > .container > h3 {
 }
 
 /* H3 Icon */
-.icon {
+.header-container .icon {
   display: inline-block;
   margin-right: 0.2em;
   width: 1.4em;
@@ -109,7 +109,7 @@ header > .container > h3 {
 }
 
 /* Releases Cards */
-#timeline ul li > div {
+#timeline li > div {
   position: relative;
   bottom: 0;
   width: 30em;
@@ -123,17 +123,17 @@ header > .container > h3 {
 }
 
 /* Right Cards */
-#timeline ul li:nth-child(odd) > div {
+#timeline li:nth-child(odd) > div {
   left: 2.4em;
 }
 
 /* Left Cards */
-#timeline ul li:nth-child(even) > div {
+#timeline li:nth-child(even) > div {
   right: calc(30em + 2.4em);
 }
 
 /* Dots */
-#timeline ul li:after {
+#timeline li:after {
   content: "";
   position: absolute;
   left: 50%;
@@ -150,7 +150,7 @@ header > .container > h3 {
 }
 
 /* Arrows at the bottom of cards */
-#timeline ul li > div::before {
+#timeline li > div::before {
   content: "";
   position: absolute;
   bottom: 5px;
@@ -161,26 +161,26 @@ header > .container > h3 {
 }
 
 /* Right Side Arrows */
-#timeline ul li:nth-child(odd) > div::before {
+#timeline li:nth-child(odd) > div::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
 }
 
 /* Left Side Arrows */
-#timeline ul li:nth-child(even) > div::before {
+#timeline li:nth-child(even) > div::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
 }
 
 /* Cards Heading */
-#timeline ul li > div > h3 {
+li > div > h3 {
   color: var(--bloody);
   font-family: var(--release-font);
   font-size: 1.5rem;
 }
 
 /* Cards Paragraph */
-#timeline ul li > div > p {
+li > div > p {
   margin-top: 0.2em;
   padding: 0 0.5em;
 }
@@ -302,7 +302,7 @@ div.labels {
 }
 
 /* Close Button */
-.modal .close-modal {
+.close-modal {
   background: none;
   border: none;
   color: var(--light-gray);
@@ -314,7 +314,7 @@ div.labels {
   transition: all 0.2s ease-in;
 }
 
-.modal .close-modal:hover {
+.close-modal:hover {
   color: rgb(92, 89, 89);
 }
 
@@ -330,13 +330,13 @@ div.labels {
 }
 
 /* Movie Title */
-.movie-header .movie-title {
+.movie-title {
   font-size: 1.4rem;
   margin-bottom: 0.2em;
 }
 
 /* Basic info under the title */
-.movie-header p > .movie-basic-info {
+.movie-basic-info {
   display: inline-block;
   font-size: 0.9rem;
   color: var(--light-gray);
@@ -344,7 +344,7 @@ div.labels {
   position: relative;
 }
 
-.movie-header p > .movie-basic-info::after {
+.movie-basic-info::after {
   content: " • ";
   position: absolute;
   color: #e4d6d6c9;
@@ -353,12 +353,12 @@ div.labels {
   top: 0.1em;
 }
 
-.movie-header p > .movie-basic-info:last-child::after {
+.movie-basic-info:last-child::after {
   content: "";
 }
 
 /* Movie Rate */
-.right-column .movie-rating {
+.movie-rating {
   text-align: right;
   font-weight: 600;
   font-size: 1.1rem;
@@ -399,7 +399,7 @@ div.labels {
   margin-bottom: 0.1em;
 }
 
-.movie-director p a {
+.movie-director p > a {
   color: var(--light-gray);
 }
 
@@ -417,7 +417,7 @@ div.labels {
   font-size: 1.2rem;
 }
 
-.movie-cast .movie-actors {
+.movie-actors {
   /* Outer Container */
   display: grid;
   width: 100%;
@@ -426,21 +426,21 @@ div.labels {
 }
 
 /* Actor Cards */
-.movie-actors .actor-card {
+.actor-card {
   display: flex;
   justify-content: flex-start;
   gap: 0.8em;
 }
 
 /* Actor Image */
-.movie-actors .actor-card img {
+.actor-card img {
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
 }
 
 /* Actor Info */
-.movie-actors .actor-card div {
+.actor-card div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -448,13 +448,13 @@ div.labels {
 }
 
 /* Actor Name */
-.movie-actors .actor-card div strong {
+ .actor-card strong {
   font-size: 0.9rem;
   font-weight: 400;
 }
 
 /* Character Name */
-.movie-actors .actor-card div em {
+.actor-card em {
   font-size: 0.85rem;
   font-style: normal;
   color: var(--light-gray);
@@ -462,10 +462,10 @@ div.labels {
 
 /* ========== Media Queries ========== */
 @media screen and (max-width: 600px) {
-  #main-header .container > h1 {
+  .header-container > h1 {
     font-size: 2.1rem;
   }
-  #main-header .container > h1 > i {
+  .header-container i {
     bottom: 0.2em;
   }
 
@@ -512,7 +512,7 @@ div.labels {
     font-size: 1.2rem;
   }
 
-  .labels .read-more {
+  .read-more {
     font-size: 0.7rem;
   }
 
@@ -520,15 +520,14 @@ div.labels {
     font-size: 0.6rem;
   }
 
-  /* Modal */
-  /* Movie Title */
-  .movie-header .movie-title {
+  /* ==== Modal ==== */
+  .movie-title {
     font-size: 1.3rem;
     margin-bottom: 0;
   }
 
   /* Basic info under the title */
-  .movie-header p > .movie-basic-info {
+  .movie-basic-info {
     display: inline-block;
     font-size: 0.66rem;
     color: var(--light-gray);
@@ -536,7 +535,7 @@ div.labels {
     position: relative;
   }
 
-  .movie-header p > .movie-basic-info::after {
+  .movie-basic-info::after {
     content: " • ";
     position: absolute;
     color: #e4d6d6c9;
@@ -545,12 +544,12 @@ div.labels {
     top: 0.1em;
   }
 
-  .movie-header p > .movie-basic-info:last-child::after {
+  .movie-basic-info:last-child::after {
     content: "";
   }
 
   /* Movie Rate */
-  .right-column .movie-rating {
+  .movie-rating {
     text-align: right;
     font-weight: 600;
     font-size: 1rem;
@@ -622,7 +621,7 @@ div.labels {
     height: 0.5rem;
   }
 
-  #timeline ul li > div > h3 {
+  #timeline li h3 {
     font-size: 1.2rem;
   }
 
@@ -631,7 +630,7 @@ div.labels {
     row-gap: 1.8em;
   }
 
-  .labels .read-more {
+  .read-more {
     font-size: 0.78rem;
     position: relative;
     margin: 0 auto;
@@ -644,7 +643,7 @@ div.labels {
   }
 
   /* Modal Close Button */
-  .modal .close-modal {
+  .close-modal {
     font-size: 1.6rem;
     margin-top: 0.25rem;
     margin-right: 0.5rem;
@@ -708,7 +707,7 @@ div.labels {
     row-gap: 1.8em;
   }
 
-  .labels .read-more {
+  .read-more {
     font-size: 0.78rem;
   }
 
@@ -716,7 +715,7 @@ div.labels {
     font-size: 0.55rem;
   }
 
-  .modal .close-modal {
+  .close-modal {
     font-size: 1.6rem;
     margin-top: 0.25rem;
     margin-right: 0.5rem;
@@ -730,7 +729,7 @@ div.labels {
 }
 
 @media screen and (min-width: 1110px) {
-  .modal .close-modal {
+  .close-modal {
     font-size: 1.6rem;
     margin-top: 0.25rem;
     margin-right: 0.5rem;
